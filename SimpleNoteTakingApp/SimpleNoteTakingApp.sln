@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleNoteTakingApp.Tests", "SimpleNoteTakingApp.Tests\SimpleNoteTakingApp.Tests.csproj", "{FCCAFAE7-00A5-4FEC-97AA-D287CD6C8E7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleNoteTakingApp", "App\SimpleNoteTakingApp.csproj", "{743B4610-2D9A-4FC6-9DD5-9FAA1E48703C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCCAFAE7-00A5-4FEC-97AA-D287CD6C8E7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCCAFAE7-00A5-4FEC-97AA-D287CD6C8E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCCAFAE7-00A5-4FEC-97AA-D287CD6C8E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCCAFAE7-00A5-4FEC-97AA-D287CD6C8E7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{743B4610-2D9A-4FC6-9DD5-9FAA1E48703C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{743B4610-2D9A-4FC6-9DD5-9FAA1E48703C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{743B4610-2D9A-4FC6-9DD5-9FAA1E48703C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{743B4610-2D9A-4FC6-9DD5-9FAA1E48703C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCB452A2-EAEC-4871-8EFC-523FEC9454EF}
+	EndGlobalSection
+EndGlobal
