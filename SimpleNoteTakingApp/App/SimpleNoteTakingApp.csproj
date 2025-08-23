@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <!-- Allow exposing of internal methods for unit testing -->
+    <InternalsVisibleTo Include="SimpleNoteTakingApp.Tests" />
+  </ItemGroup>
 </Project>

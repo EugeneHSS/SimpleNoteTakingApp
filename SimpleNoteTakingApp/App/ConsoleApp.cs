@@ -36,8 +36,7 @@ namespace SimpleNoteTakingApp
 
         public void Shutdown() => _IsRunning = false;
 
-        //TODO@ make private, dont expose API
-        public INoteResult ProcessLine(string line)
+        internal INoteResult ProcessLine(string line)
         {
             if (string.IsNullOrWhiteSpace(line))
                 return NoteResult.Invalid("Empty command.");

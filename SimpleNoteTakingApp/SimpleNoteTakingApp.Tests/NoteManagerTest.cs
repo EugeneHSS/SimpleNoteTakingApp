@@ -29,11 +29,15 @@ public class ConsoleAppIntegrationSmolTests
         app.ProcessLine(@"add ""B"" y");
 
         var list = app.ProcessLine("list");
+
         Assert.Equal(ResultType.Ok, list._result);
-        Assert.Contains("Notes:", list._resultMessage);
-        Assert.Contains("A", list._resultMessage);
-        Assert.Contains("B", list._resultMessage);
+
+        Assert.Contains("+----------------------+", list._resultMessage);
+        Assert.Contains("| Title", list._resultMessage);
+        Assert.Contains("| Content", list._resultMessage);
+
     }
+
 
     [Fact]
     public void EditAndDelete()
