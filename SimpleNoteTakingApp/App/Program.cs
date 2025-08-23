@@ -1,10 +1,14 @@
-﻿namespace SimpleNoteTakingApp
+﻿using SimpleNoteTakingApp;
+using SimpleNoteTakingApp.Core;
+
+namespace SimpleNoteTakingApp
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            var app = ConsoleApp.CreateConsoleApp<NoteManager>();
+            app.Run();
         }
     }
 }
