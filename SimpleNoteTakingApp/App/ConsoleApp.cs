@@ -9,6 +9,19 @@ namespace SimpleNoteTakingApp
         private bool _IsRunning;
         private readonly IManager _MgrInst;
 
+        private static readonly (string Syntax, string Description)[] HelpCommands =
+        {
+            ("add \"<title>\" \"<content>\"", "create a note (quotes allow spaces; content can be unquoted)"),
+            ("list", "list notes"),
+            ("get|view \"<title>\"", "view a note"),
+            ("del|delete \"<title>\"", "delete a note"),
+            ("edit \"<title>\" \"<content>\"", "edit a note (content can be unquoted)"),
+            ("search \"<text>\"", "search notes"),
+            ("help", "show help"),
+            ("quit | exit", "exit"),
+        };
+
+
         public static ConsoleApp CreateConsoleApp<TManager>() where TManager : IManager, new()
             => new ConsoleApp(new TManager());
 
@@ -49,13 +62,13 @@ namespace SimpleNoteTakingApp
                     case "get":
                     case "view":
                         if (args.Length != 1)
-                            return NoteResult.Invalid(@"Usage: view ""<idOrTitle>""");
+                            return NoteResult.Invalid(@"Usage: view ""<iTitle>""");
                         return _MgrInst.Get(args);
 
                     case "del":
                     case "delete":
                         if (args.Length != 1)
-                            return NoteResult.Invalid(@"Usage: delete ""<idOrTitle>""");
+                            return NoteResult.Invalid(@"Usage: delete ""<Title>""");
                         return _MgrInst.Remove(args);
 
                     case "add":
@@ -65,7 +78,7 @@ namespace SimpleNoteTakingApp
 
                     case "edit":
                         if (args.Length < 2)
-                            return NoteResult.Invalid(@"Usage: edit ""<idOrTitle>"" ""<new content>""");
+                            return NoteResult.Invalid(@"Usage: edit ""<Title>"" ""<new content>""");
                         return _MgrInst.Edit(new[] { args[0], string.Join(' ', args.Skip(1)) });
 
                     case "search":
@@ -136,8 +149,29 @@ namespace SimpleNoteTakingApp
 
         private static void Render(INoteResult r)
         {
-            if (!string.IsNullOrWhiteSpace(r._resultMessage))
-                Console.WriteLine(r._resultMessage);
+            if (string.IsNullOrWhiteSpace(r._resultMessage))
+            {
+                return;
+            }
+            switch (r._result)
+            {
+                case ResultType.Ok:
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(r._resultMessage);
+                    break;
+
+                case ResultType.InvalidInput:
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("[Invalid]  " + r._resultMessage);
+                    break;
+
+                case ResultType.Error:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("[Error] " + r._resultMessage);
+                    break;
+            }
+
+            Console.ResetColor();
         }
 
         private static void PrintWelcome()
@@ -148,17 +182,10 @@ namespace SimpleNoteTakingApp
 
         private static void PrintHelp()
         {
-            Console.WriteLine(@"
-                Commands:
-                  add ""<title>"" ""<content>""      -> create a note (quotes allow spaces; content can be unquoted)
-                  list                              -> list notes
-                  get|view ""<idOrTitle>""          -> view a note
-                  del|delete ""<idOrTitle>""        -> delete a note
-                  edit ""<idOrTitle>"" ""<content>"" -> edit a note (content can be unquoted)
-                  search ""<text>""                 -> search notes
-                  help                              -> show help
-                  quit | exit                       -> exit"
-            );
+            Console.WriteLine("\nCommands:");
+            int pad = HelpCommands.Max(c => c.Syntax.Length) + 2;
+            foreach (var (syntax, desc) in HelpCommands)
+                Console.WriteLine($"  {syntax.PadRight(pad)} -> {desc}");
         }
 
     }

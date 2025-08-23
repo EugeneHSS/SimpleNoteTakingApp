@@ -60,10 +60,19 @@ namespace SimpleNoteTakingApp.Core
 
             var lines = _notes
                 .OrderBy(n => n.Title)
-                .Select(n => n.Title);
+                .Select(n =>
+                    $"| {n.Title,-20} | {TrimContent(n.Content, 30),-30} |");
 
-            return NoteResult.Ok("Notes:\n" + string.Join("\n", lines));
+            var body =
+                "+----------------------+--------------------------------+\n" +
+                "| Title                | Content                        |\n" +
+                "+----------------------+--------------------------------+\n" +
+                string.Join("\n", lines) + "\n" +
+                "+----------------------+--------------------------------+";
+
+            return NoteResult.Ok(body);
         }
+
 
         public INoteResult Get(IReadOnlyList<string> args)
         {
@@ -80,10 +89,12 @@ namespace SimpleNoteTakingApp.Core
                 return NoteResult.Invalid($"Note not found: {key}");
             }
 
-            var body = $@"Title: {note.Title}
-                        Created: {note.CreatedAt:G}
-                        Updated: {note.UpdatedAt:G}
-                        {note.Content}";
+            var nl = Environment.NewLine;
+            var body =
+                $"Title: {note.Title}{nl}" +
+                $"Created: {note.CreatedAt:G}{nl}" +
+                $"Updated: {note.UpdatedAt:G}{nl}{nl}" +
+                note.Content;
 
             return NoteResult.Ok(body);
         }
@@ -137,26 +148,38 @@ namespace SimpleNoteTakingApp.Core
             }
 
             var q = (args[0] ?? "").Trim();
-
             if (q.Length == 0)
             {
                 return NoteResult.Invalid("Search text cannot be empty.");
             }
 
             var hits = _notes
-                .Where(n => n.Title.Contains(q, StringComparison.OrdinalIgnoreCase) || n.Content.Contains(q, StringComparison.OrdinalIgnoreCase))
+                .Where(n => n.Title.Contains(q, StringComparison.OrdinalIgnoreCase) ||
+                            n.Content.Contains(q, StringComparison.OrdinalIgnoreCase))
                 .OrderBy(n => n.Title)
                 .ToList();
 
             if (hits.Count == 0)
-            { 
+            {
                 return NoteResult.Ok("No matches.");
             }
 
-            var lines = hits.Select(n => n.Title);
-            return NoteResult.Ok("Matches:\n" + string.Join("\n", lines));
+            var lines = hits
+                .Select(n =>
+                    $"| {n.Title,-20} | {TrimContent(n.Content, 30),-30} |");
+
+            var body =
+                "+----------------------+--------------------------------+\n" +
+                "| Title                | Content                        |\n" +
+                "+----------------------+--------------------------------+\n" +
+                string.Join("\n", lines) + "\n" +
+                "+----------------------+--------------------------------+";
+
+            return NoteResult.Ok(body);
         }
 
         private Note? FindByTitle(string title) => _notes.FirstOrDefault(n => string.Equals(n.Title, title, StringComparison.OrdinalIgnoreCase));
+        private static string TrimContent(string s, int max) => s.Length <= max ? s : s.Substring(0, max - 3) + "...";
+
     }
 }
