@@ -9,16 +9,16 @@ namespace SimpleNoteTakingApp.Core
 {
     public interface IManager
     {
-        INoteResult Add(string Args);
+        INoteResult Add(IReadOnlyList<string> args);
 
-        INoteResult Remove(string Args);
+        INoteResult Remove(IReadOnlyList<string> args);
 
-        INoteResult Get(string Args);
+        INoteResult Get(IReadOnlyList<string> args);
 
         INoteResult View();
 
-        INoteResult Edit(string Args);
+        INoteResult Edit(IReadOnlyList<string> args);
 
-        INoteResult Search(string args);
+        INoteResult Search(IReadOnlyList<string> args);
     }
 }
