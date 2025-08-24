@@ -31,10 +31,15 @@ In addition, bonus features are also added:
 # Building and Running
 
 ## Prerequisites
+- [Visual Studio 2022](https://visualstudio.microsoft.com/) with the **.NET desktop development** workload installed.
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)  
-- (Alternative) [Visual Studio 2022](https://visualstudio.microsoft.com/) with the **.NET desktop development** workload installed.
 
 ## Build
+
+### Using Visual Studio
+1. Open the solution in the project root `SimpleNoteTakingApp.sln` or the project file `App/SimpleNoteTakingApp.csproj` in Visual Studio.  
+2. Set the build configuration to **Release** and run the application.
+3. A terminal window will open with the app ready for input.  
 
 ### Directly from terminal
 1. Navigate to the project root (`SimpleNoteTakingApp`). 
@@ -55,11 +60,6 @@ In addition, bonus features are also added:
 
         App\bin\Release\net8.0\SimpleNoteTakingApp.exe
 
-### Using Visual Studio
-
-1. Open the solution in the project root `SimpleNoteTakingApp.sln` or the project file `App/SimpleNoteTakingApp.csproj` in Visual Studio.  
-2. Set the build configuration to **Release** and run the application.
-3. A terminal window will open with the app ready for input.  
 
 # How to Use
 When the application starts, it will automatically display a list of available commands to guide you.  
