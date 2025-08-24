@@ -90,6 +90,8 @@ From the project root, you can run tests in either of the following ways after b
         cd SimpleNoteTakingApp.Tests
         dotnet test
 
+3. Alternatively, you can open the solution file `SimpleNoteTakingApp.sln` in Visual Studio, set the test project as the startup project, then right-click and select **Run Tests**. 
+
 
 
 # Future Improvements
