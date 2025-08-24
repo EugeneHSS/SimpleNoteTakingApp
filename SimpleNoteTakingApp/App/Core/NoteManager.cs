@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using SimpleNoteTakingApp.Core;
-using SimpleNoteTakingApp.Core.ErrorHandling;
+﻿using SimpleNoteTakingApp.Core.ErrorHandling;
 
 namespace SimpleNoteTakingApp.Core
 {

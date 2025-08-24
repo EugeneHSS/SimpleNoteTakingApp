@@ -1,5 +1,4 @@
-﻿using System;
-using SimpleNoteTakingApp.Core;
+﻿using SimpleNoteTakingApp.Core;
 using SimpleNoteTakingApp.Core.ErrorHandling;
 
 namespace SimpleNoteTakingApp

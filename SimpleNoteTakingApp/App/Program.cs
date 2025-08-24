@@ -1,5 +1,4 @@
-﻿using SimpleNoteTakingApp;
-using SimpleNoteTakingApp.Core;
+﻿using SimpleNoteTakingApp.Core;
 
 namespace SimpleNoteTakingApp
 {

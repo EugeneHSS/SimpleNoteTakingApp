@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using SimpleNoteTakingApp.Core;
+﻿using SimpleNoteTakingApp.Core;
 using SimpleNoteTakingApp.Core.ErrorHandling;
+
 namespace SimpleNoteTakingApp.Tests.Mocks
 {
     public class MockManager : IManager
