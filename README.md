@@ -68,6 +68,8 @@ You can also type the `help` command at any time to view this list again.
 # Demo video
 [![Short demo video](https://img.youtube.com/vi/hXEkDRA_gUU/0.jpg)](https://www.youtube.com/watch?v=hXEkDRA_gUU)
 
+https://www.youtube.com/watch?v=hXEkDRA_gUU
+
 # Testing
 This project includes unit tests written with **xUnit** to validate functionality across the application.  
 
