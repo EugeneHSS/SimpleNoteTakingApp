@@ -57,7 +57,7 @@ In addition, bonus features are also added:
 
 ### Using Visual Studio
 
-1. Open the solution in the project root or the project file `App/SimpleNoteTakingApp.csproj` in Visual Studio.  
+1. Open the solution in the project root `SimpleNoteTakingApp.sln` or the project file `App/SimpleNoteTakingApp.csproj` in Visual Studio.  
 2. Set the build configuration to **Release** and run the application.
 3. A terminal window will open with the app ready for input.  
 
