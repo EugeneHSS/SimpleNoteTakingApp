@@ -37,12 +37,17 @@ In addition, bonus features are also added:
 ## Build
 
 ### Directly from terminal
-1. Navigate to the project root (`SimpleNoteTakingApp`).  
-2. Build the project in **Release** mode:  
+1. Navigate to the project root (`SimpleNoteTakingApp`). 
+2. Run the following commands to clean and restore:
 
-        dotnet build -c Release --project App/SimpleNoteTakingApp.csproj
+        dotnet clean
+        dotnet restore
 
-3. Run the app directly from the terminal:  
+3. Now run the buld command to build the project in **Release** mode:  
+
+        dotnet build -c Release
+
+4. Run the app directly from the terminal:  
 
         dotnet run -c Release --project App/SimpleNoteTakingApp.csproj
 
@@ -71,11 +76,11 @@ The tests cover:
 - **Core logic** -> testing note creation, editing, deleting, and searching, as well as the internal `NoteManager` to ensure correct storage and retrieval behavior  
 
 ### Running the Tests
-From the project root, you can run tests in either of the following ways:
+From the project root, you can run tests in either of the following ways after building all the projects in the solution
 
 1. Run directly at the project root:  
 
-        dotnet test ./SimpleNoteTakingApp.Tests
+        dotnet test
 
 2. Or navigate into the test project from the project root and run:  
 
