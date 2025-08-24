@@ -57,34 +57,8 @@ In addition, bonus features are also added:
 3. A terminal window will open with the app ready for input.  
 
 # How to Use
-Once running, the application starts in interactive mode. Type commands at the prompt (`>`).  
-
-Commands:  
-- `add "<title>" "<content>"` -> creates and add a new note  
-- `list` -> list all notes with their title and content preview. 
-- `view "<title>"` -> display full details of a note  
-- `delete "<title>"` -> remove a note  
-- `edit "<title>" "<new content>"` -> update a note’s content  
-- `search "<query>"` -> find notes by matching text in the title or content  
-- `help` -> show the list of commands  
-- `quit` / `exit` -> close the application  
-
-Example usage:
-help
-
-add "Today's task" "Check out content on C# .net"
-
-list
-
-view "Today's task"
-
-edit "Today's task" "Learn how to use .net"
-
-search ".net"
-
-delete "Today's task"
-
-exit
+When the application starts, it will automatically display a list of available commands to guide you.  
+You can also type the `help` command at any time to view this list again. 
 
 # Demo video
 
